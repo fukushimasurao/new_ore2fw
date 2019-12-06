@@ -10,8 +10,16 @@ if ($_SERVER['REQUEST_URI'] === '/') {
     echo "<ul><li><a href='/phpinfo.php'><code>phpinfo()</code></a></ul>\n";
     echo "<hr>\n";
     exit;
-}elseif(!$_SERVER['REQUEST_URI'] === '/'){
-    http_response_code(404);
+}
+//　↓今回追加した部分↓
+if ($_SERVER['REQUEST_URI'] === '/phpinfo.php') {
+    phpinfo();
+    exit;
+}
+//　↑今回追加した部分↑
+
+http_response_code(404);
 echo "<p>404 Not Found</p>";
 
-}
+http_response_code(404);
+echo "<p>404 Not Foundだぞ</p>";
