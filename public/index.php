@@ -3,7 +3,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 // echo "this is test \n";
 // echo h(date('Y/m/d'));
-if ($_SERVER['REQUEST_URI'] === '/aa') {
+if ($_SERVER['REQUEST_URI'] === '/') {
     echo "<!DOCTYPE html>\n";
     echo "<title>test</title>\n";
     echo "<p>現在は" . h(date('Y年m月d日H時i分s秒')). "です</p>\n";
@@ -16,8 +16,6 @@ if ($_SERVER['REQUEST_URI'] === '/aa') {
 }
 //　↓今回追加した部分↓
 if ($_SERVER['REQUEST_URI'] === '/phpinfo') {
-    // var_dump($_SERVER['REQUEST_URI']);
-    // echo "heoppppp";
     phpinfo();
     exit;
 }
