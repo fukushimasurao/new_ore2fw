@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_URI'] === '/') {
     echo "<ul><li><a href='/phpinfo.php'><code>phpinfo()</code></a></ul>\n";
     echo "<hr>\n";
     exit;
-}
-http_response_code(404);
+}elseif(!$_SERVER['REQUEST_URI'] === '/'){
+    http_response_code(404);
 echo "<p>404 Not Found</p>";
+
+}
