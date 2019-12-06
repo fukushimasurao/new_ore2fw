@@ -8,6 +8,12 @@ if ($_SERVER['REQUEST_URI'] === '/') {
     echo "<title>test</title>\n";
     echo "this is test \n";
     echo "h(date('Y/m/d'))";
+
+    exit;
+}
+
+if ($_SERVER['REQUEST_URI'] === '/phpinfo.php') {
+    phpinfo();
     exit;
 }
 http_response_code(404);
