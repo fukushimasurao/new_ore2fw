@@ -11,6 +11,9 @@
         "sort-packages": true
     },
     "autoload": {
+        "psr-4": {
+            "ore2\\": "src/"
+        },
         "files": [
             "src/functions.php"
         ]
