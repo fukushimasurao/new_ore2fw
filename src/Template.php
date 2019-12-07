@@ -11,11 +11,13 @@ class Template
         $this->file = $file;
         $this->params = $params;
     }
+
     public function render()
     {
         extract($this->params);
         include $this->file;
     }
+    
     public function __toString()
     {
         ob_start();
