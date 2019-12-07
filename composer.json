@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ore2\\": "src/"
+            "Oira\\": "src/"
         },
         "files": [
             "src/functions.php"

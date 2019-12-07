@@ -1,14 +1,18 @@
 <?php
 $routes = [];
-$routes['/'] = function(){
-    ob_start();
-    include __DIR__ . '/view/index.php';
-    return [200, ['Content-Type' => 'test/html'] , ob_get_clean()];
+$template = new \Oira\TemplateFactory(__DIR__ . '/view/');
+$routes['/'] = function () use ($template) {
+    return [200, ['Content-Type' => 'text/html'], 
+    $template->create('index', [
+        'name' => 'てすとまん',
+        'route' => 'ルートからのテスト'
+    ])];
 };
-
 $routes['/phpinfo'] = function(){
     ob_start();
     phpinfo(); 
 };
-
-return $routes; 
+// $routes['/testtest'] = function(){
+//     echo "testtestああｑｗせｄｒｆｔｇ"; 
+// };
+return $routes;
