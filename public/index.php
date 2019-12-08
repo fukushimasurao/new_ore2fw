@@ -1,14 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-$routes = require __DIR__ .'/../app/routes.php';
+$request_method = $_SERVER['REQUEST_METHOD'];
 $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$not_found = function (){
-    return [404, ['Contentd-Type' => 'text/html'],"<h1>404NotFoundです</h1>"];
-};
-$f = $routes[$request_uri] ?? $not_found;
-[$status, $headers, $body] = $f();
-http_response_code($status);
-foreach($headers as $name => $h){
-    header("{name}:$h");
-}
-echo $body;
+$router = new \Oira\Routing(require __DIR__ . '/../app/routes.php');
+$router[[$request_method, $request_uri]]();
